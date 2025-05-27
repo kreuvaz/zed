@@ -3,11 +3,20 @@
     "context": "Editor && mode == full",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd->": "assistant::QuoteSelection",
-      "cmd-<": "assistant::InsertIntoEditor"
+      "cmd-shift-l": "assistant::QuoteSelection",
+      "cmd-shift-k": "assistant::InsertIntoEditor"
     }
   },
   {
+    "context": "Workspace",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-i": "agent::ToggleFocus",
+      "cmd-l": "agent::ToggleFocus"
+    }
+  },
+  {
+    // TODO
     "context": "Editor && !edit_prediction",
     "use_key_equivalents": true,
     "bindings": {
@@ -15,6 +24,7 @@
     }
   },
   {
+    // TODO
     "context": "AgentDiff",
     "use_key_equivalents": true,
     "bindings": {
@@ -25,6 +35,7 @@
     }
   },
   {
+    // TODO
     "context": "Editor && editor_agent_diff",
     "use_key_equivalents": true,
     "bindings": {
@@ -36,12 +47,13 @@
     }
   },
   {
+    // TODO
     "context": "ContextEditor > Editor",
     "use_key_equivalents": true,
     "bindings": {
       "cmd-enter": "assistant::Assist",
-      "cmd->": "assistant::QuoteSelection",
-      "cmd-<": "assistant::InsertIntoEditor",
+      "cmd-shift-l": "assistant::QuoteSelection",
+      "cmd-shift-k": "assistant::InsertIntoEditor",
       "shift-enter": "assistant::Split",
       "ctrl-r": "assistant::CycleMessageRole",
       "enter": "assistant::ConfirmCommand",
@@ -54,12 +66,14 @@
     "use_key_equivalents": true,
     "bindings": {
       "cmd-n": "agent::NewThread",
+      "cmd-r": "agent::NewThread",
       "cmd-alt-n": "agent::NewTextThread",
+      "cmd-alt-r": "agent::NewTextThread",
       "cmd-shift-h": "agent::OpenHistory",
       "cmd-alt-c": "agent::OpenConfiguration",
       "cmd-alt-p": "agent::OpenRulesLibrary",
-      "cmd-i": "agent::ToggleProfileSelector",
-      "cmd-alt-/": "agent::ToggleModelSelector",
+      "cmd-.": "agent::ToggleProfileSelector",
+      "cmd-/": "agent::ToggleModelSelector",
       "cmd-shift-a": "agent::ToggleContextPicker",
       "cmd-shift-o": "agent::ToggleNavigationMenu",
       "cmd-shift-i": "agent::ToggleOptionsMenu",
