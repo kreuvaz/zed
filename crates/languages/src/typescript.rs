@@ -27,19 +27,25 @@ pub(super) fn typescript_task_context() -> ContextProviderWithTasks {
     ContextProviderWithTasks::new(TaskTemplates(vec![
         TaskTemplate {
             label: "jest file test".to_owned(),
-            command: "npx jest".to_owned(),
-            args: vec![VariableName::File.template_value()],
+            command: "npx".to_owned(),
+            args: vec![
+                "jest".to_owned(),
+                VariableName::RelativeFile.template_value(),
+            ],
+            cwd: Some(VariableName::WorktreeRoot.template_value()),
             ..TaskTemplate::default()
         },
         TaskTemplate {
             label: "jest test $ZED_SYMBOL".to_owned(),
-            command: "npx jest".to_owned(),
+            command: "npx".to_owned(),
             args: vec![
+                "jest".to_owned(),
                 "--testNamePattern".into(),
                 format!("\"{}\"", VariableName::Symbol.template_value()),
-                VariableName::File.template_value(),
+                VariableName::RelativeFile.template_value(),
             ],
             tags: vec!["ts-test".into(), "js-test".into(), "tsx-test".into()],
+            cwd: Some(VariableName::WorktreeRoot.template_value()),
             ..TaskTemplate::default()
         },
         TaskTemplate {
