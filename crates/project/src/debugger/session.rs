@@ -454,7 +454,9 @@ impl LocalMode {
         });
 
         cx.background_spawn(async move {
-            futures::future::try_join(launch, configuration_sequence).await?;
+            let e = futures::future::try_join(launch, configuration_sequence).await;
+            dbg!(&e);
+            e?;
             Ok(())
         })
     }
